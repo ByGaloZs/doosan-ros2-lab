@@ -32,6 +32,7 @@ The current environment has been installed and tested with:
 ```text
 doosan-ros2-lab/
 ├── README.md
+├── AGENTS.md
 ├── .gitignore
 ├── docs/
 │   ├── context/
@@ -63,7 +64,7 @@ Tested and validated commands used during the lab setup and experiments.
 
 ### `ros2_packages/`
 
-Future custom ROS 2 packages.
+Placeholder for future custom ROS 2 packages. No ROS 2 package code exists here yet.
 
 ### `scripts/`
 

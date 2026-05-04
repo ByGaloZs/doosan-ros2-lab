@@ -226,7 +226,7 @@ TBD
 
 Use this structure when documenting validated commands:
 
-```md
+````md
 # Command Title
 
 ## Purpose
@@ -246,7 +246,7 @@ TBD
 ## Notes
 
 TBD
-```
+````
 
 ## Code Style
 

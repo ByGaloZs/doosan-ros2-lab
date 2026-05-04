@@ -54,7 +54,6 @@ htmlcov/
 .ruff_cache/
 
 # Python packaging
-build/
 dist/
 *.egg-info/
 .eggs/
