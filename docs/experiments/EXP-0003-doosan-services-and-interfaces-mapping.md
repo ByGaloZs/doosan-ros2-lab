@@ -2,7 +2,7 @@
 
 ## Status
 
-Pending Validation
+Validated
 
 ## Objective
 
@@ -251,15 +251,21 @@ dsr_msgs2/srv/MoveJoint
 
 ## Actual Result
 
-Pending validation.
+The experiment was completed successfully.
 
-After validation, document:
+The Doosan ROS 2 packages were visible from the ROS 2 CLI after sourcing the Doosan workspace. The `dsr_msgs2` package was available and resolved to the Doosan workspace install path.
 
-- packages detected with `ros2 pkg list | grep dsr`;
-- whether `dsr_msgs2` is available;
-- relevant service interfaces found;
-- active Doosan services found;
-- exact service types for motion-related services.
+Validated observations:
+
+- Doosan-related packages were detected with `ros2 pkg list | grep dsr`.
+- The `dsr_msgs2` package was available.
+- Doosan message and service interfaces were listed through `ros2 interface list`.
+- Motion-related service interfaces were available, including `dsr_msgs2/srv/MoveJoint` and `dsr_msgs2/srv/MoveLine`.
+- The `MoveJoint` service definition was inspected successfully and exposed the expected request and response fields.
+- The `MoveLine` service definition was inspected successfully.
+- After launching the Doosan virtual stack, active Doosan services were visible under the `/dsr01/dsr_controller2/` namespace.
+- The active motion service `/dsr01/dsr_controller2/motion/move_joint` was available.
+- The service type for `/dsr01/dsr_controller2/motion/move_joint` was confirmed as `dsr_msgs2/srv/MoveJoint`.
 
 ## Evidence
 
@@ -279,9 +285,9 @@ Suggested evidence:
 
 ## Conclusion
 
-Pending validation.
+The experiment confirms that the Doosan ROS 2 service interfaces required for future custom client development are available through the official `dsr_msgs2` package.
 
-This experiment should produce a clear map of the Doosan ROS 2 interfaces available for future custom client development.
+The validated `MoveJoint` service and the inspected `MoveLine` interface provide a clear baseline for implementing future direct service-based motion experiments without relying on high-level wrappers.
 
 ## Next Step
 
