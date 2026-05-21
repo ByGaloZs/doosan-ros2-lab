@@ -2,9 +2,9 @@
 
 ## Purpose
 
-This repository is a ROS 2 robot motion lab focused on modular robot motion, trajectory planning, and execution.
+This repository is a general ROS 2 robot motion architecture lab focused on modular robot motion, trajectory planning, and execution.
 
-It is used to document validated commands, reproducible experiments, prototype scripts, and future package design for robot motion software. The repository also supports preparation for a master's thesis, but it remains a practical engineering lab rather than a thesis manuscript.
+It is used to document validated commands, reproducible experiments, prototype scripts, and future package design for robot motion software. The repository also supports preparation for a future master's thesis / TFM, but it remains a practical engineering lab rather than a thesis manuscript.
 
 ## Current Experimental Platform
 
@@ -36,11 +36,11 @@ ros2-robot-motion-lab/
 ├── AGENTS.md
 ├── .gitignore
 ├── docs/
-│   ├── context/
 │   ├── architecture/
-│   ├── study/
+│   ├── commands/
+│   ├── context/
 │   ├── experiments/
-│   └── commands/
+│   └── study/
 ├── ros2_packages/
 │   ├── pallet_layout_core/
 │   ├── robot_motion_client/
@@ -63,3 +63,5 @@ Planned conceptual layers:
 - `pallet_layout_dashboard`: future application interface for pallet layout visualization and interaction.
 
 Only the base folder structure exists. No ROS 2 package logic, nodes, or dashboard code has been implemented yet.
+
+The next implementation step is `pallet_layout_core`, before the dashboard or Doosan-specific adapter.
