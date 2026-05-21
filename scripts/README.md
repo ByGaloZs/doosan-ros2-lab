@@ -6,7 +6,20 @@ This directory is reserved for small helper scripts used by this lab.
 
 ## Current Status
 
-No scripts have been added yet.
+A prototype script has been added for experiment validation:
+
+```text
+prototypes/move_joint_client.py
+```
+
+This script is a temporary Python `rclpy` prototype for calling the official Doosan `MoveJoint` service. It is not the final ROS 2 package structure.
+
+Before running it, source ROS 2 Jazzy and the validated Doosan workspace:
+
+```bash
+source /opt/ros/jazzy/setup.bash
+source /home/galozs-dev/doosan_ws/install/setup.bash
+```
 
 ## Rules
 

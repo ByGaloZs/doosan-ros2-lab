@@ -76,6 +76,8 @@ Technical reports, summaries, and progress documents.
 
 ## Current Direction
 
+The initial experiment sequence is complete. The repository now documents validation for direct Doosan services, ROS 2 graph inspection, MoveIt2 planning, Gazebo simulation, failure handling, and a minimal Python `rclpy` service client prototype.
+
 The next technical goal is to prepare a custom ROS 2 package, for example:
 
 ```text

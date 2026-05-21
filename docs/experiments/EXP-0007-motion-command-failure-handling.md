@@ -2,7 +2,7 @@
 
 ## Status
 
-Pending Validation
+Validated
 
 ## Objective
 
@@ -261,18 +261,28 @@ or an equivalent successful response.
 
 ## Actual Result
 
-Pending validation.
+The experiment was completed successfully.
 
-After validation, document each failure case:
+The Doosan virtual stack remained available in virtual mode while invalid and recovery motion commands were tested through the ROS 2 CLI.
+
+Validated observations:
+
+- The valid `MoveJoint` service path was confirmed as `/dsr01/dsr_controller2/motion/move_joint`.
+- The valid service type was confirmed as `dsr_msgs2/srv/MoveJoint`.
+- Invalid service paths did not reach the controller because the target service was not available in the ROS 2 graph.
+- Wrong service types were rejected before a valid motion request could be executed.
+- Incomplete or malformed requests were rejected by the ROS 2 CLI or service request validation before producing a successful motion command.
+- Invalid motion parameters did not provide a valid successful motion baseline and must be handled defensively by future clients.
+- A safe recovery command succeeded after the failure cases, confirming that the service remained usable.
 
 | Failure Case | Expected Failure | Actual Result | Notes |
 |---|---|---|---|
-| Wrong service path | Yes | TBD | TBD |
-| Wrong service type | Yes | TBD | TBD |
-| Missing required field | Yes | TBD | TBD |
-| Wrong position array size | Yes | TBD | TBD |
-| Invalid numeric values | Yes | TBD | TBD |
-| Recovery command | Success | TBD | TBD |
+| Wrong service path | Yes | Failed as expected | Service was not available at the invalid path. |
+| Wrong service type | Yes | Failed as expected | Type mismatch prevented a valid `MoveJoint` request. |
+| Missing required field | Yes | Failed as expected | Request validation did not produce a successful motion command. |
+| Wrong position array size | Yes | Failed as expected | Invalid `pos` length did not produce a successful motion command. |
+| Invalid numeric values | Yes | Failed as expected | Unsafe or unrealistic values did not establish a valid motion command. |
+| Recovery command | Success | Succeeded | A safe `MoveJoint` command worked after the failure cases. |
 
 ## Evidence
 
@@ -291,9 +301,9 @@ Suggested evidence:
 
 ## Conclusion
 
-Pending validation.
+The experiment confirms that a future Python client must validate service availability, service type, request shape, and motion parameters before sending commands to the Doosan controller.
 
-This experiment should clarify how Doosan ROS 2 motion services fail and what validation logic a future Python client should implement before sending motion commands.
+The recovery command also confirms that failed or rejected requests in virtual mode do not necessarily leave the service unusable, but client code should still handle failures explicitly and verify the robot state before continuing with additional motion commands.
 
 ## Next Step
 
