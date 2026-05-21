@@ -23,7 +23,7 @@ The repository has completed the initial Doosan-based validation sequence. The p
 
 ## Known Future Direction
 
-Future custom ROS 2 packages may be created under `ros2_packages/`, but no ROS 2 code should be added before the minimal `robot_motion_client` and `doosan_motion_adapter` responsibilities are defined.
+Future custom modules and ROS 2 packages may be created under `ros2_packages/`, but no ROS 2 code should be added before the minimal `pallet_layout_core`, `robot_motion_client`, and `doosan_motion_adapter` responsibilities are defined.
 
 ## Next Step
 

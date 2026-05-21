@@ -7,3 +7,6 @@ This directory should document package boundaries, data flow, and design decisio
 ## Index
 
 - [Modular Motion Architecture](modular_motion_architecture.md)
+- [Architecture Decisions](decisions/)
+
+The `decisions/` folder contains Architecture Decision Records used to document important technical decisions, rationale, and trade-offs.

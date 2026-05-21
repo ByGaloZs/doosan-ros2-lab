@@ -40,7 +40,9 @@ ros2-robot-motion-lab/
 │   ├── commands/
 │   ├── context/
 │   ├── experiments/
-│   └── study/
+│   ├── implementation/
+│   ├── thesis_notes/
+│   └── templates/
 ├── ros2_packages/
 │   ├── pallet_layout_core/
 │   ├── robot_motion_client/
@@ -50,6 +52,19 @@ ros2-robot-motion-lab/
 ├── scripts/
 └── reports/
 ```
+
+## Documentation Structure
+
+- `docs/architecture/`: architecture design and ADRs.
+- `docs/context/`: project and TFM context.
+- `docs/experiments/`: reproducible technical experiments.
+- `docs/implementation/`: implementation notes.
+- `docs/thesis_notes/`: rough notes for future TFM writing.
+- `docs/templates/`: reusable documentation templates.
+- `docs/commands/`: validated commands.
+- `reports/`: generated outputs and experiment evidence.
+
+The repository is intentionally structured to support future TFM writing. Experiments, ADRs, implementation notes, and generated outputs should be cross-referenced when relevant.
 
 ## Future Direction
 
@@ -64,4 +79,4 @@ Planned conceptual layers:
 
 Only the base folder structure exists. No ROS 2 package logic, nodes, or dashboard code has been implemented yet.
 
-The next implementation step is `pallet_layout_core`, before the dashboard or Doosan-specific adapter.
+The current next implementation target is `pallet_layout_core v0.1`, before the dashboard or Doosan-specific adapter.

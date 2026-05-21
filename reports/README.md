@@ -2,22 +2,18 @@
 
 ## Purpose
 
-This directory is reserved for technical summaries, progress notes, and formal reports related to this lab.
-
-## Current Status
-
-No reports have been added yet.
+This directory stores generated outputs, logs, JSON files, screenshots, and other evidence produced by experiments.
 
 ## Recommended Content
 
 Reports may include:
 
-- environment summaries;
-- experiment conclusions;
-- progress notes;
-- technical decisions;
-- future work.
+- generated JSON outputs;
+- command logs;
+- screenshots;
+- plots or summaries;
+- experiment evidence.
 
 ## Rule
 
-Reports should distinguish between validated results, assumptions, and planned next steps.
+Outputs should be referenced from experiment files when relevant. Do not add large binary files.

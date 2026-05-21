@@ -74,11 +74,13 @@ ros2-robot-motion-lab/
 ├── AGENTS.md
 ├── .gitignore
 ├── docs/
-│   ├── context/
 │   ├── architecture/
-│   ├── study/
+│   ├── commands/
+│   ├── context/
 │   ├── experiments/
-│   └── commands/
+│   ├── implementation/
+│   ├── thesis_notes/
+│   └── templates/
 ├── ros2_packages/
 │   ├── pallet_layout_core/
 │   ├── robot_motion_client/
@@ -103,9 +105,17 @@ current-environment-status.md
 thesis-context.md
 ```
 
-### `docs/study/`
+### `docs/thesis_notes/`
 
-Use this directory for technical study notes about ROS 2, robot motion architecture, planning, simulation, and platform-specific interfaces.
+Use this directory for rough working notes that may later support TFM writing.
+
+### `docs/implementation/`
+
+Use this directory for implementation notes, assumptions, limitations, and module-level design details.
+
+### `docs/templates/`
+
+Use this directory for reusable documentation templates.
 
 ### `docs/architecture/`
 
