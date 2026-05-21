@@ -167,7 +167,7 @@ Expected examples:
 ### Terminal B — Inspect joint states
 
 ```bash
-ros2 topic echo /joint_states
+ros2 topic echo /dsr01/joint_states
 ```
 
 ### Expected Result
@@ -228,15 +228,20 @@ Expected example:
 
 ## Actual Result
 
-Pending validation.
+The experiment was completed successfully.
 
-After validation, document:
+The Doosan virtual stack launched correctly in virtual mode and the ROS 2 graph exposed the expected runtime state interfaces for inspection.
 
-- whether `/joint_states` was available;
-- whether `/tf` and `/tf_static` were available;
-- whether Doosan-related nodes were visible;
-- whether Doosan-related services were visible;
-- any namespace differences found during inspection.
+Validated observations:
+
+- Doosan-related ROS 2 nodes were visible in the active graph.
+- The joint state topic was available under the Doosan namespace as `/dsr01/joint_states`.
+- Joint state messages were published successfully and included the expected joint state fields.
+- Transform-related topics were available, including `/tf` and `/tf_static`.
+- Doosan-related services were visible under the `/dsr01/dsr_controller2/` namespace.
+- The validated motion service `/dsr01/dsr_controller2/motion/move_joint` was present.
+
+No namespace difference was identified during this inspection.
 
 ## Evidence
 
@@ -250,15 +255,15 @@ Suggested evidence:
 
 - terminal output of `ros2 node list`;
 - terminal output of `ros2 topic list`;
-- terminal output of `/joint_states`;
+- terminal output of `/dsr01/joint_states`;
 - terminal output of `ros2 service list | grep dsr`;
 - RViz2 screenshot showing the robot model.
 
 ## Conclusion
 
-Pending validation.
+The experiment confirms that the Doosan `m1013` virtual stack exposes enough runtime state information through the ROS 2 graph to support future custom clients and validation tools.
 
-This experiment should confirm whether the Doosan `m1013` exposes enough runtime state information through the ROS 2 graph to support future custom clients and validation tools.
+The observed topics and services provide a practical baseline for mapping Doosan interfaces and preparing future experiments around direct service-based motion control.
 
 ## Next Step
 

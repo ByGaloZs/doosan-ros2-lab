@@ -799,7 +799,7 @@ Inspect robot joint state messages.
 ### Command
 
 ```bash
-ros2 topic echo /joint_states
+ros2 topic echo dsr01/joint_states
 ```
 
 ### Expected Result
