@@ -1,6 +1,6 @@
 # Validated Commands
 
-This document records the command catalog used to validate the local ROS 2 / Doosan Robotics lab environment.
+This document records the command catalog used to validate the current ROS 2 robot motion lab environment.
 
 The goal is to keep a reliable list of commands that are useful, reproducible, and aligned with the current lab setup.
 
@@ -25,7 +25,7 @@ This document covers:
 The lab repository is located at:
 
 ```text
-~/Documents/dev/doosan-ros2-lab
+~/Documents/dev/ros2-robot-motion-lab
 ```
 
 The validated official Doosan ROS 2 workspace is located at:
@@ -65,7 +65,7 @@ pwd
 ### Expected Result
 
 ```text
-/home/galozs/Documents/dev/doosan-ros2-lab
+/home/galozs-dev/Documents/dev/ros2-robot-motion-lab
 ```
 
 ### Notes
@@ -120,8 +120,8 @@ git remote -v
 ### Expected Result
 
 ```text
-origin  https://github.com/ByGaloZs/doosan-ros2-lab.git (fetch)
-origin  https://github.com/ByGaloZs/doosan-ros2-lab.git (push)
+origin  https://github.com/ByGaloZs/ros2-robot-motion-lab.git (fetch)
+origin  https://github.com/ByGaloZs/ros2-robot-motion-lab.git (push)
 ```
 
 ### Notes
@@ -361,7 +361,7 @@ cd ~/doosan_ws
 The terminal should move to:
 
 ```text
-/home/galozs/doosan_ws
+/home/galozs-dev/doosan_ws
 ```
 
 ### Notes
@@ -385,7 +385,7 @@ pwd
 ### Expected Result
 
 ```text
-/home/galozs/doosan_ws
+/home/galozs-dev/doosan_ws
 ```
 
 ### Notes
@@ -467,7 +467,7 @@ The output should point to the Doosan workspace install directory.
 Expected example:
 
 ```text
-/home/galozs/doosan_ws/install/dsr_bringup2
+/home/galozs-dev/doosan_ws/install/dsr_bringup2
 ```
 
 ### Notes
@@ -495,7 +495,7 @@ The output should point to the Doosan workspace install directory.
 Expected example:
 
 ```text
-/home/galozs/doosan_ws/install/dsr_msgs2
+/home/galozs-dev/doosan_ws/install/dsr_msgs2
 ```
 
 ### Notes

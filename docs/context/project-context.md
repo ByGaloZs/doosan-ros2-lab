@@ -2,9 +2,15 @@
 
 ## Purpose
 
-`doosan-ros2-lab` is a technical lab for documenting and experimenting with ROS 2 Jazzy and Doosan Robotics ROS 2 using the Doosan `m1013` as the experimental platform.
+`ros2-robot-motion-lab` is a general ROS 2 robot motion lab for documenting and experimenting with modular robot motion, trajectory planning, and execution.
 
-The repository is intended for study notes, reproducible experiments, validated commands, technical reports, and future custom ROS 2 packages.
+The repository is intended for study notes, reproducible experiments, validated commands, technical reports, prototype scripts, and future custom ROS 2 packages.
+
+## Current Validation Platform
+
+Doosan Robotics ROS 2 and the Doosan `m1013` are the current experimental validation platform.
+
+Doosan-specific experiments remain valid because they establish a concrete baseline for service-based motion, robot state inspection, MoveIt2 planning, Gazebo simulation, and Python `rclpy` clients.
 
 ## Boundary
 
@@ -18,37 +24,29 @@ Do not modify, move, copy, or assume control over that workspace from this repos
 
 ## Current Phase
 
-The project is in the initial documentation and structure phase.
-
-Current priorities:
-
-1. Keep the repository clean.
-2. Document the validated environment.
-3. Build ROS 2 and Doosan study notes.
-4. Record tested commands.
-5. Create reproducible experiment notes.
-6. Prepare future custom ROS 2 packages incrementally.
+The initial experiment sequence has been completed and documented. The next phase is to define the first minimal ROS 2 package structure without tightly coupling the general layer to Doosan-specific logic.
 
 ## Future Package Direction
 
-A future custom package may be created under `ros2_packages/` with a name such as:
+Future software should distinguish between:
 
 ```text
-doosan_motion_client
+robot_motion_client
+doosan_motion_adapter
 ```
 
-That package should favor direct use of official ROS 2 and Doosan interfaces, especially:
+Conceptual responsibilities:
 
-- `dsr_msgs2`
-- `dsr_controller2`
-- official ROS 2 services
-- Python / `rclpy`
+- `robot_motion_client`: general motion request handling, validation flow, and execution orchestration.
+- `doosan_motion_adapter`: Doosan-specific communication through official Doosan ROS 2 services and interfaces.
+
+The general layer should avoid direct dependency on Doosan-specific message or service types where possible. Doosan-specific details such as `dsr_msgs2`, `dsr_controller2`, and service paths should remain in the adapter layer.
 
 No ROS 2 package code has been created in this repository yet.
 
 ## Validated Doosan Interface
 
-The movement service currently documented for future experiments is:
+The currently validated Doosan movement service is:
 
 ```text
 /dsr01/dsr_controller2/motion/move_joint
@@ -60,7 +58,7 @@ Service type:
 dsr_msgs2/srv/MoveJoint
 ```
 
-Future experiments should validate usage directly and document the result under `docs/experiments/`.
+This interface should be treated as the first concrete adapter target, not as the full project architecture.
 
 ## Documentation Policy
 

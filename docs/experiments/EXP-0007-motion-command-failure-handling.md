@@ -12,7 +12,7 @@ Validate how the Doosan ROS 2 motion services behave when receiving invalid, inc
 
 Before building a custom Python motion client, it is important to understand how service calls fail.
 
-A future wrapper such as `doosan_motion_client` should not only send valid requests. It should also handle:
+A future robot motion client and Doosan adapter should not only send valid requests. They should also handle:
 
 - invalid service types;
 - incorrect field names;
@@ -44,7 +44,7 @@ Official Doosan workspace:
 Lab repository:
 
 ```text
-~/Documents/dev/doosan-ros2-lab
+~/Documents/dev/ros2-robot-motion-lab
 ```
 
 ## Preconditions

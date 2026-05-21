@@ -25,10 +25,11 @@ The goal is to validate that Python can:
 - send a request;
 - receive and inspect the response.
 
-This experiment is the technical starting point for a future package such as:
+This experiment is the technical starting point for the future motion client and adapter layers:
 
 ```text
-doosan_motion_client
+robot_motion_client
+doosan_motion_adapter
 ```
 
 ## Environment
@@ -53,7 +54,7 @@ Official Doosan workspace:
 Lab repository:
 
 ```text
-~/Documents/dev/doosan-ros2-lab
+~/Documents/dev/ros2-robot-motion-lab
 ```
 
 ## Preconditions
@@ -140,7 +141,7 @@ dsr_msgs2/srv/MoveJoint
 ### Terminal B — Create prototype directory
 
 ```bash
-cd ~/Documents/dev/doosan-ros2-lab
+cd ~/Documents/dev/ros2-robot-motion-lab
 mkdir -p scripts/prototypes
 ```
 
@@ -314,10 +315,11 @@ The experiment confirms that Python can directly communicate with the official D
 
 This validates the basic software pattern required for a future custom motion client: source the ROS 2 and Doosan environments, initialize a Python ROS 2 node, import the official service type, create a service client, send a request, and inspect the response.
 
-This provides the technical basis for creating a future ROS 2 package such as:
+This provides the technical basis for creating future ROS 2 package layers such as:
 
 ```text
-doosan_motion_client
+robot_motion_client
+doosan_motion_adapter
 ```
 
 ## Next Step
@@ -328,13 +330,14 @@ After this experiment, the next phase is to create the initial ROS 2 package str
 ros2_packages/
 ```
 
-Recommended future package:
+Recommended future package layers:
 
 ```text
-doosan_motion_client
+robot_motion_client
+doosan_motion_adapter
 ```
 
-The first package version should expose a minimal, maintainable Python client for:
+The first implementation should keep general motion client logic separate from the Doosan-specific adapter for:
 
 ```text
 /dsr01/dsr_controller2/motion/move_joint

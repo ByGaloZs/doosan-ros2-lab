@@ -50,7 +50,7 @@ Official Doosan workspace:
 Lab repository:
 
 ```text
-~/Documents/dev/doosan-ros2-lab
+~/Documents/dev/ros2-robot-motion-lab
 ```
 
 ## Preconditions

@@ -2,11 +2,11 @@
 
 ## Purpose
 
-Track the known local environment status for this lab repository.
+Track the currently validated experimental environment for this ROS 2 robot motion lab.
 
 ## Scope
 
-This document describes the environment used for `doosan-ros2-lab` only.
+This document describes the environment used for `ros2-robot-motion-lab`.
 
 Do not treat this repository as the validated official Doosan workspace. The official validated workspace remains separate at:
 
@@ -14,25 +14,20 @@ Do not treat this repository as the validated official Doosan workspace. The off
 ~/doosan_ws
 ```
 
-## Current Status
+## Current Experimental Environment
 
 - Operating system: Ubuntu 24.04 LTS
 - ROS 2 distribution: Jazzy
 - Doosan Robotics ROS 2: installed in the separate validated workspace
 - Robot model used for experiments: Doosan `m1013`
+- Docker Emulator: `doosanrobot/dsr_emulator:3.0.1`
+- Visualization: RViz2
+- Planning: MoveIt2
+- Simulation: Gazebo
+- Python client library: `rclpy`
 - Repository phase: completed initial experiment sequence
 - ROS 2 package code in this repository: not created yet
 - Prototype scripts in this repository: one Python `rclpy` service client prototype
-
-## Known Tools Mentioned For This Lab
-
-- ROS 2 Jazzy
-- Doosan Robotics ROS 2
-- RViz2
-- MoveIt2
-- Gazebo
-- Docker-based Doosan emulator
-- Python / `rclpy`
 
 ## Repository Status
 
@@ -43,10 +38,7 @@ Do not treat this repository as the validated official Doosan workspace. The off
 
 ## Validation Status
 
-The initial experiment sequence has been completed and documented under:
-
-- `docs/commands/`
-- `docs/experiments/`
+The initial experiment sequence validates the current Doosan-based experimental platform. These results support the broader ROS 2 robot motion architecture but should not force the general layer to become Doosan-specific.
 
 Validated areas include:
 
@@ -61,4 +53,4 @@ Validated areas include:
 
 ## Next Step
 
-Prepare the first custom ROS 2 package under `ros2_packages/` only after deciding the minimal package structure for `doosan_motion_client`.
+Define the minimal package structure for the future `robot_motion_client` and `doosan_motion_adapter` layers before creating ROS 2 package code.

@@ -2,28 +2,28 @@
 
 ## Purpose
 
-Organize the study path for this ROS 2 Jazzy and Doosan Robotics ROS 2 lab.
+Organize the study path for this ROS 2 robot motion lab.
 
 ## Current Focus
 
-The repository is currently in the documentation and structure phase. The priority is to understand and document the environment before creating ROS 2 package code.
+The repository has completed the initial Doosan-based validation sequence. The priority is to define a modular robot motion architecture before creating ROS 2 package code.
 
 ## Study Areas
 
 1. ROS 2 Jazzy basics
 2. ROS 2 nodes, topics, services, and messages
 3. Python client libraries with `rclpy`
-4. Doosan Robotics ROS 2 package structure and interfaces
-5. Doosan motion services, especially `MoveJoint`
+4. Robot motion client architecture
+5. Robot-specific adapter boundaries
 6. RViz2 visualization workflow
 7. MoveIt2 planning workflow
 8. Gazebo simulation workflow
-9. Docker-based Doosan emulator usage
+9. Current Doosan experimental platform and emulator usage
 10. Reproducible experiment documentation
 
 ## Known Future Direction
 
-A future custom ROS 2 package may be created under `ros2_packages/`, but no ROS 2 code should be added before the relevant commands and interfaces are documented and validated.
+Future custom ROS 2 packages may be created under `ros2_packages/`, but no ROS 2 code should be added before the minimal `robot_motion_client` and `doosan_motion_adapter` responsibilities are defined.
 
 ## Next Step
 

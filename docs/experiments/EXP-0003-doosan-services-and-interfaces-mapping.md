@@ -12,9 +12,9 @@ This experiment focuses on understanding what service interfaces are available b
 
 ## Context
 
-The future package `doosan_motion_client` should communicate directly with official Doosan ROS 2 services.
+The future Doosan adapter should communicate directly with official Doosan ROS 2 services while keeping the general motion client layer robot-agnostic.
 
-Before designing that package, it is necessary to identify:
+Before designing that adapter, it is necessary to identify:
 
 - available Doosan packages;
 - available Doosan service interfaces;
@@ -42,7 +42,7 @@ Official Doosan workspace:
 Lab repository:
 
 ```text
-~/Documents/dev/doosan-ros2-lab
+~/Documents/dev/ros2-robot-motion-lab
 ```
 
 ## Preconditions
@@ -126,7 +126,7 @@ The output should point to the Doosan workspace install directory.
 Expected example:
 
 ```text
-/home/galozs/doosan_ws/install/dsr_msgs2
+/home/galozs-dev/doosan_ws/install/dsr_msgs2
 ```
 
 ---

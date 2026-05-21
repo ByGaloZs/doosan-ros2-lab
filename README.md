@@ -1,21 +1,14 @@
-# Doosan ROS 2 Lab
-
-A technical lab for documenting and experimenting with **ROS 2 Jazzy** and **Doosan Robotics ROS 2** using the Doosan `m1013` as an experimental platform.
+# ROS 2 Robot Motion Lab
 
 ## Purpose
 
-This repository is intended to provide a clean and organized workspace for:
+This repository is a ROS 2 robot motion lab focused on modular robot motion, trajectory planning, and execution.
 
-- documenting the validated environment;
-- keeping technical study notes;
-- registering tested commands;
-- documenting reproducible experiments;
-- preparing future custom ROS 2 packages;
-- exploring robot simulation, motion control, and trajectory planning.
+It is used to document validated commands, reproducible experiments, prototype scripts, and future package design for robot motion software. The repository also supports preparation for a master's thesis, but it remains a practical engineering lab rather than a thesis manuscript.
 
-## Validated Environment
+## Current Experimental Platform
 
-The current environment has been installed and tested with:
+The current validation platform is:
 
 - Ubuntu 24.04 LTS
 - ROS 2 Jazzy
@@ -27,10 +20,18 @@ The current environment has been installed and tested with:
 - Gazebo
 - Python / `rclpy`
 
+Doosan Robotics ROS 2 and the Doosan `m1013` are the current experimental validation platform. They are not intended to define the full scope of the repository.
+
+The validated Doosan workspace remains separate at:
+
+```text
+~/doosan_ws
+```
+
 ## Repository Structure
 
 ```text
-doosan-ros2-lab/
+ros2-robot-motion-lab/
 ├── README.md
 ├── AGENTS.md
 ├── .gitignore
@@ -44,51 +45,13 @@ doosan-ros2-lab/
 └── reports/
 ```
 
-## Main Directories
+## Future Direction
 
-### `docs/context/`
+Future software should separate general robot motion logic from robot-specific communication.
 
-General project context and current environment status.
+Planned conceptual layers:
 
-### `docs/study/`
+- `robot_motion_client`: general robot motion client layer for motion requests, validation, and execution flow.
+- `doosan_motion_adapter`: Doosan-specific adapter for official Doosan ROS 2 services and interfaces.
 
-Technical study notes about ROS 2, Doosan Robotics ROS 2, services, simulation, and modular robotics architecture.
-
-### `docs/experiments/`
-
-Reproducible technical experiments and validation notes.
-
-### `docs/commands/`
-
-Tested and validated commands used during the lab setup and experiments.
-
-### `ros2_packages/`
-
-Placeholder for future custom ROS 2 packages. No ROS 2 package code exists here yet.
-
-### `scripts/`
-
-Auxiliary scripts for local tasks and small utilities.
-
-### `reports/`
-
-Technical reports, summaries, and progress documents.
-
-## Current Direction
-
-The initial experiment sequence is complete. The repository now documents validation for direct Doosan services, ROS 2 graph inspection, MoveIt2 planning, Gazebo simulation, failure handling, and a minimal Python `rclpy` service client prototype.
-
-The next technical goal is to prepare a custom ROS 2 package, for example:
-
-```text
-doosan_motion_client
-```
-
-This package should control the robot directly through:
-
-- `dsr_msgs2`
-- `dsr_controller2`
-- official ROS 2 services
-- Python / `rclpy`
-
-The long-term goal is to avoid depending on high-level wrappers for the core lab experiments and to build a clearer understanding of the official Doosan ROS 2 service interfaces.
+No ROS 2 packages have been created yet. Package creation should happen only after the minimal structure is defined and documented.

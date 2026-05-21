@@ -2,11 +2,13 @@
 
 ## Project Context
 
-This repository is a technical lab for documenting and experimenting with **ROS 2 Jazzy** and **Doosan Robotics ROS 2** using the Doosan `m1013` as an experimental platform.
+This repository is a general ROS 2 robot motion lab focused on modular robot motion, trajectory planning, and execution.
+
+Doosan Robotics ROS 2 and the Doosan `m1013` are the current experimental validation platform. Do not design the whole project as Doosan-only.
 
 The repository is intentionally separated from the validated official Doosan workspace.
 
-Do not modify, move, or assume control over:
+Do not modify, move, copy, or assume control over:
 
 ```text
 ~/doosan_ws
@@ -14,17 +16,32 @@ Do not modify, move, or assume control over:
 
 That workspace is considered the validated Doosan ROS 2 environment.
 
-This repository should remain focused on documentation, reproducible experiments, study notes, and future custom ROS 2 packages.
+This repository should remain focused on documentation, reproducible experiments, study notes, prototype scripts, and future custom ROS 2 packages.
+
+## Architectural Direction
+
+Future software should distinguish between:
+
+```text
+robot_motion_client
+doosan_motion_adapter
+```
+
+Conceptual responsibilities:
+
+- `robot_motion_client`: general robot motion client layer for motion requests, validation, and execution flow.
+- `doosan_motion_adapter`: Doosan-specific communication through official Doosan ROS 2 services and interfaces.
+
+Do not create these packages unless explicitly requested.
+
+General logic should not depend directly on Doosan-specific service types, paths, or package names unless the task is explicitly about the Doosan adapter or Doosan validation experiments.
 
 ## Official References
 
 Use these official references when working with ROS 2 or Doosan Robotics ROS 2:
 
-- ROS 2 Jazzy documentation:
-  - https://docs.ros.org/en/jazzy/
-
-- Doosan Robotics ROS 2 Jazzy manual:
-  - https://doosanrobotics.github.io/doosan-robotics-ros-manual/jazzy/index.html
+- ROS 2 Jazzy documentation: https://docs.ros.org/en/jazzy/
+- Doosan Robotics ROS 2 Jazzy manual: https://doosanrobotics.github.io/doosan-robotics-ros-manual/jazzy/index.html
 
 When implementing or documenting ROS 2 behavior, prefer official documentation over assumptions.
 
@@ -32,25 +49,16 @@ Do not invent ROS 2 commands, Doosan services, message types, launch files, pack
 
 ## Repository Language
 
-Use English for:
-
-- folder names;
-- file names;
-- package names;
-- class names;
-- function names;
-- variables;
-- comments;
-- documentation.
+Use English for folder names, file names, package names, code, comments, and documentation.
 
 Keep technical writing clear, concise, and practical.
 
 ## Main Rules
 
-1. Do not generate complex ROS 2 code unless explicitly requested.
-2. Do not modify the official Doosan workspace.
-3. Prefer small, incremental, maintainable changes.
-4. Document the reason for technical decisions when relevant.
+1. Do not generate ROS 2 code unless explicitly requested.
+2. Do not create ROS 2 packages unless explicitly requested.
+3. Do not modify the official Doosan workspace.
+4. Prefer small, incremental, maintainable changes.
 5. Keep the repository simple and avoid overengineering.
 6. Use official ROS 2 and Doosan interfaces when possible.
 7. Do not invent APIs, packages, services, or commands.
@@ -61,7 +69,7 @@ Keep technical writing clear, concise, and practical.
 Expected structure:
 
 ```text
-doosan-ros2-lab/
+ros2-robot-motion-lab/
 ├── README.md
 ├── AGENTS.md
 ├── .gitignore
@@ -79,27 +87,19 @@ doosan-ros2-lab/
 
 ### `docs/context/`
 
-Use this directory for project context and environment status.
+Use this directory for project context, thesis context, and environment status.
 
 Recommended files:
 
 ```text
 project-context.md
 current-environment-status.md
+thesis-context.md
 ```
 
 ### `docs/study/`
 
-Use this directory for technical study notes.
-
-Examples:
-
-```text
-ros2-basics.md
-doosan-ros2-services.md
-motion-control-notes.md
-simulation-notes.md
-```
+Use this directory for technical study notes about ROS 2, robot motion architecture, planning, simulation, and platform-specific interfaces.
 
 ### `docs/experiments/`
 
@@ -112,6 +112,8 @@ EXP-0001-short-description.md
 EXP-0002-short-description.md
 EXP-0003-short-description.md
 ```
+
+Doosan-specific experiment names may remain Doosan-specific because they validate the current experimental platform.
 
 ### `docs/commands/`
 
@@ -127,9 +129,9 @@ Do not copy official Doosan packages into this directory.
 
 ### `scripts/`
 
-Use this directory for small helper scripts only.
+Use this directory for small helper scripts and temporary prototypes only.
 
-Do not place core ROS 2 package logic here.
+Do not place final ROS 2 package logic here.
 
 ### `reports/`
 
@@ -143,27 +145,14 @@ When ROS 2 code is requested:
 2. Use clear package names in English.
 3. Keep nodes small and focused.
 4. Separate ROS communication logic from application logic.
-5. Use type hints where applicable.
-6. Avoid global mutable state when possible.
+5. Keep robot-specific communication behind adapter boundaries when possible.
+6. Use type hints where applicable.
 7. Keep configuration external when it improves maintainability.
 8. Do not depend on high-level wrappers unless explicitly required.
 
-Future package direction:
+## Doosan Platform Notes
 
-```text
-doosan_motion_client
-```
-
-This package should eventually communicate directly with:
-
-- `dsr_msgs2`
-- `dsr_controller2`
-- official ROS 2 services
-- Python / `rclpy`
-
-## Doosan ROS 2 Notes
-
-The validated movement service is:
+The currently validated movement service is:
 
 ```text
 /dsr01/dsr_controller2/motion/move_joint
@@ -175,7 +164,7 @@ with type:
 dsr_msgs2/srv/MoveJoint
 ```
 
-The project should favor direct use of official ROS 2 services instead of relying on high-level wrappers for core experiments.
+Treat this as the first concrete adapter target, not as the full project architecture.
 
 ## Documentation Rules
 
@@ -285,7 +274,6 @@ Be especially careful with:
 ```bash
 rm -rf
 git reset --hard
-git clean -fd
 sudo
 colcon build --symlink-install
 ```
@@ -299,23 +287,15 @@ Prefer small commits with clear messages.
 Recommended commit message style:
 
 ```text
-Add initial project documentation
+Generalize project documentation
 Document validated environment status
-Add ROS 2 study notes
-Document MoveJoint service validation
-Prepare initial ROS 2 package structure
+Add thesis context
+Document motion experiment results
+Prepare package architecture notes
 ```
 
 Do not commit generated build artifacts, logs, ROS bag files, virtual environments, or local environment files.
 
 ## Current Project Status
 
-The repository is in the initial documentation and structure phase.
-
-Current priority:
-
-1. Keep the repository clean.
-2. Document the validated environment.
-3. Build study notes before writing complex code.
-4. Create reproducible experiments.
-5. Prepare future ROS 2 packages incrementally.
+The initial Doosan-based experiment sequence is complete. The current priority is to define the minimal future package architecture before creating ROS 2 package code.

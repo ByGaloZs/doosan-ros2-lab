@@ -13,14 +13,15 @@ No ROS 2 package code has been created in this repository yet.
 - Do not copy official Doosan packages into this directory.
 - Do not place the validated official Doosan workspace here.
 - Keep future packages small, focused, and documented.
-- Prefer official ROS 2 and Doosan interfaces when package code is eventually added.
+- Keep general robot motion logic separate from robot-specific adapters.
 
 ## Future Direction
 
-A future package may be named:
+Future package layers may be named:
 
 ```text
-doosan_motion_client
+robot_motion_client
+doosan_motion_adapter
 ```
 
-That package should only be created after the relevant services, commands, and expected behavior are documented.
+These packages should only be created after the relevant responsibilities, interfaces, commands, and expected behavior are documented.

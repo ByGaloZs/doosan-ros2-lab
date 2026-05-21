@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Track reproducible experiments for this ROS 2 Jazzy and Doosan Robotics ROS 2 lab.
+Track reproducible experiments for this ROS 2 robot motion lab.
 
 ## Current Status
 
