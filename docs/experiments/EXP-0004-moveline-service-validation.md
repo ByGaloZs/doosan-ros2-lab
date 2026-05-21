@@ -2,7 +2,7 @@
 
 ## Status
 
-Pending Validation
+Validated
 
 ## Objective
 
@@ -156,7 +156,7 @@ Document the actual request fields before executing the service call.
 > Important: validate the exact `MoveLine` request structure before running this command. Adjust the fields if the local interface definition differs.
 
 ```bash
-ros2 service call /dsr01/dsr_controller2/motion/move_line dsr_msgs2/srv/MoveLine "{pos: [0.0, 0.0, 10.0, 0.0, 0.0, 0.0], vel: [20.0, 10.0], acc: [20.0, 10.0], time: 0.0, radius: 0.0, ref: 0, mode: 1, blend_type: 0, sync_type: 0}"
+ros2 service call /dsr01/dsr_controller2/motion/move_line dsr_msgs2/srv/MoveLine "{pos: [0.0, 0.0, -100.0, 0.0, 0.0, 0.0], vel: [20.0, 10.0], acc: [20.0, 10.0], time: 0.0, radius: 0.0, ref: 0, mode: 1, blend_type: 0, sync_type: 0}"
 ```
 
 ### Expected Result
@@ -178,7 +178,7 @@ or an equivalent successful service response.
 > Important: validate the exact `MoveLine` request structure before running this command. Adjust the fields if the local interface definition differs.
 
 ```bash
-ros2 service call /dsr01/dsr_controller2/motion/move_line dsr_msgs2/srv/MoveLine "{pos: [0.0, 0.0, -10.0, 0.0, 0.0, 0.0], vel: [20.0, 10.0], acc: [20.0, 10.0], time: 0.0, radius: 0.0, ref: 0, mode: 1, blend_type: 0, sync_type: 0}"
+ros2 service call /dsr01/dsr_controller2/motion/move_line dsr_msgs2/srv/MoveLine "{pos: [0.0, 0.0, 100.0, 0.0, 0.0, 0.0], vel: [20.0, 10.0], acc: [20.0, 10.0], time: 0.0, radius: 0.0, ref: 0, mode: 1, blend_type: 0, sync_type: 0}"
 ```
 
 ### Expected Result
@@ -195,15 +195,21 @@ or an equivalent successful service response.
 
 ## Actual Result
 
-Pending validation.
+The experiment was completed successfully.
 
-After validation, document:
+The Doosan virtual stack launched correctly in virtual mode and the Cartesian linear motion service was available in the ROS 2 graph.
 
-- actual `move_line` service path;
-- actual `MoveLine` request fields;
-- whether the service call succeeded;
-- whether the movement was visible in RViz2;
-- whether the return motion succeeded.
+Validated observations:
+
+- The active line motion service path was `/dsr01/dsr_controller2/motion/move_line`.
+- The service type was confirmed as `dsr_msgs2/srv/MoveLine`.
+- The `MoveLine` service interface was inspected before executing the service call.
+- The request fields used for validation were `pos`, `vel`, `acc`, `time`, `radius`, `ref`, `mode`, `blend_type`, and `sync_type`.
+- The first Cartesian linear motion service call succeeded.
+- The robot motion was visible in RViz2 while running in virtual mode.
+- The return Cartesian linear motion service call also succeeded.
+
+Both service calls returned a successful response and the robot returned from the small Cartesian displacement as expected.
 
 ## Evidence
 
@@ -223,9 +229,9 @@ Suggested evidence:
 
 ## Conclusion
 
-Pending validation.
+The experiment confirms that Cartesian linear motion can be executed directly through the official Doosan ROS 2 `MoveLine` service in virtual mode.
 
-This experiment should confirm whether Cartesian linear motion can be executed directly through an official Doosan ROS 2 service.
+This validates `dsr_msgs2/srv/MoveLine` as a suitable interface for future direct service-based Cartesian motion experiments and provides a baseline for later MoveIt2 planning validation.
 
 ## Next Step
 
